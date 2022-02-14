@@ -6,7 +6,7 @@ export default {
    dolarBlue: async () => {
     return axios.get("https://www.dolarsi.com/api/api.php?type=valoresprincipales").then(
       response => {
-        const dolarBluePrice = response.data[1].casa.venta
+        const dolarBluePrice = response.data[0].casa.venta
         return dolarBluePrice
       }
     ).catch(error => console.log(error))

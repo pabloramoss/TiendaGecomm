@@ -1,5 +1,7 @@
 import React from 'react';
-import { HStack, Slider, SliderFilledTrack, SliderTrack } from '@chakra-ui/react'
+import {
+  HStack, Slider, SliderFilledTrack, SliderTrack,
+} from '@chakra-ui/react';
 
 /* type Props = {
   item: CartItemType;
@@ -7,17 +9,15 @@ import { HStack, Slider, SliderFilledTrack, SliderTrack } from '@chakra-ui/react
   removeFromCart: (id: number) => void;
 } */
 
-
-const CheckoutStep = ({value})=> {
-
-  return(
-    <HStack my={20} display={["none","flex","flex","flex"]}>
-      <Slider aria-label='slider' isDisabled value={value}>
+function CheckoutStep({ value }) {
+  return (
+    <HStack my={20} display={['none', 'flex', 'flex', 'flex']}>
+      <Slider aria-label="slider" isDisabled value={value}>
         <SliderTrack>
-          <SliderFilledTrack bg='green' />
+          <SliderFilledTrack bg="green" />
         </SliderTrack>
       </Slider>
     </HStack>
-  )
+  );
 }
-export default CheckoutStep
+export default CheckoutStep;

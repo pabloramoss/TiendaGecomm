@@ -1,65 +1,62 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 
-const App = ({ Component, pageProps }) => {
+function App({ Component, pageProps }) {
   const [clientInfo, setClientInfo] = useState({
-    name: "",
-    company: "",
-    cuit: "",
-    whatsapp: "",
-    email: "",
-    address: "",
-    zipCode: "",
-    city: "",
-    province: "",
+    name: '',
+    company: '',
+    cuit: '',
+    whatsapp: '',
+    email: '',
+    address: '',
+    zipCode: '',
+    city: '',
+    province: '',
     shipping: true,
-  })
-  const [productOnHover, setProductOnHover] = useState()
-  
-  const [cart, setCart] = useState([])
-  const handleAddToCart = (clickedItem)=>{
-    setCart(prev=> {
-      //1. Is the item already added in the cart?
-      const isItemInCart = prev.find(item => item.title === clickedItem.title)
-      if(isItemInCart) {
-        return prev.map(item => 
-          item.title === clickedItem.title
-          ? { ...item, amount: item.amount + 1}
-          : item
-        )
+  });
+  const [productOnHover, setProductOnHover] = useState();
+
+  const [cart, setCart] = useState([]);
+  const handleAddToCart = (clickedItem) => {
+    setCart((prev) => {
+      // 1. Is the item already added in the cart?
+      const isItemInCart = prev.find((item) => item.title === clickedItem.title);
+      if (isItemInCart) {
+        return prev.map((item) => (item.title === clickedItem.title
+          ? { ...item, amount: item.amount + 1 }
+          : item));
       }
-      //First time the item is added
-      return [...prev, {...clickedItem, amount: 1}]
-    })
-  }
-  
-  const handleRemoveFromCart = (title)=>{
-    setCart(prev => (
-      prev.reduce((counter, item)=>{
+      // First time the item is added
+      return [...prev, { ...clickedItem, amount: 1 }];
+    });
+  };
+
+  const handleRemoveFromCart = (title) => {
+    setCart((prev) => (
+      prev.reduce((counter, item) => {
         if (item.title === title) {
           if (item.amount === 1) return counter;
-          return [...counter, {...item, amount: item.amount -1}];
-        }else{
-          return [...counter, item]
+          return [...counter, { ...item, amount: item.amount - 1 }];
         }
-      },[])
-    ))
-  }
+        return [...counter, item];
+      }, [])
+    ));
+  };
 
   return (
     <ChakraProvider>
-        <Component 
-          {...pageProps}
-          handleRemoveFromCart={handleRemoveFromCart}
-          handleAddToCart={handleAddToCart}
-          cart={cart}
-          clientInfo={clientInfo}
-          setClientInfo={setClientInfo}
-          productOnHover={productOnHover}
-          setProductOnHover={setProductOnHover}
-        />
+      <Component
+        {...pageProps}
+        handleRemoveFromCart={handleRemoveFromCart}
+        handleAddToCart={handleAddToCart}
+        cart={cart}
+        clientInfo={clientInfo}
+        setClientInfo={setClientInfo}
+        productOnHover={productOnHover}
+        setProductOnHover={setProductOnHover}
+      />
     </ChakraProvider>
   );
-};
+}
 
 export default App;

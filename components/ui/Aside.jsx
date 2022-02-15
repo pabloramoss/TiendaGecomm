@@ -10,7 +10,9 @@ const Aside = ({categories})=> {
     <Stack py={3} bg="white" w="300px" h="100vh" display={["none", "none", "none", "flex"]} justifyContent="space-between">
         <Stack justifyContent="space-between" height="100%" alignItems="center">
           <Stack>
-            <Image src='/images/gecomm-logo.png' px={3} alt='logo'/>
+            <Link href='/'>
+              <Image src='/images/gecomm-logo.png' px={3} alt='logo'/>
+            </Link>
             <Stack
               display={["none", "none", "none", "flex"]}
               gap={3}

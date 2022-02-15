@@ -11,7 +11,9 @@ const Navbar = ({categories})=> {
     <Stack display={["flex", "flex", "flex", "none"]} py={3} bg="white" pos="fixed" w="100%" zIndex={100}>
       <Container maxW="container.xl">
         <HStack justifyContent="space-between" alignItems="end">
-          <Image src='/images/gecomm-logo.png' alt='gecomm logo'/>
+          <Link href='/'>
+            <Image src='/images/gecomm-logo.png' px={3} alt='logo'/>
+          </Link>
           <Stack
             display={["none", "none", "none", "flex"]}
             direction="row" 

@@ -64,7 +64,7 @@ function IndexRoute({
               <Heading fontSize={22} fontWeight={600}>
                 {' '}
                 US
-                {parseCurrency(parseInt(product.price))}
+                {parseCurrency(parseFloat(product.price))}
                 <Badge ms={3} borderRadius={5}>
                   +IVA(
                   {product.iva}

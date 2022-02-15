@@ -29,7 +29,7 @@ function CartItem({ item, handleAddToCart, handleRemoveFromCart }) {
             <HStack justifyContent="space-between">
               <Text fontSize={13}>
                 Precio: US
-                {parseCurrency(parseInt(item.price))}
+                {parseCurrency(parseFloat(item.price))}
               </Text>
               <Text fontSize={13}>
                 IVA:
@@ -38,7 +38,7 @@ function CartItem({ item, handleAddToCart, handleRemoveFromCart }) {
               </Text>
               <Text fontSize={13}>
                 Subtotal: US
-                {parseCurrency(parseInt((item.amount * item.price).toFixed(2)))}
+                {parseCurrency(parseFloat((item.amount * item.price).toFixed(2)))}
               </Text>
             </HStack>
           </Stack>

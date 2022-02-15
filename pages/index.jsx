@@ -49,6 +49,8 @@ const productsSection = productsGrouping.map(productCat=>(
       </Grid>
   </Stack>
   ))
+  console.log(categories)
+  console.log(products)
 
   return (
     <Stack direction="row" bg="gray.200">

@@ -33,7 +33,7 @@ function Checkout({
   const router = useRouter();
   const handleGoBack = () => router.push('/UserForm');
 
-  const text = cart.reduce((message, product) => message.concat(`* ${product.title} - x${product.amount}\n`), '').concat(`\nTotal: ${parseCurrency(totalAR)}`).concat(`\nCliente: ${clientInfo.name}\nCódigo: ${uniqueID}`);
+  const text = cart.reduce((message, product) => message.concat(`* ${product.title} - x${product.amount}\n`), '').concat(`\nTotal: ${parseCurrency(totalAR)}`).concat(`\nCliente: ${clientInfo.name}\nCódigo: ${uniqueID}\nFecha: ${transactionDate}\nEmpresa: ${clientInfo.company}\nCuit: ${clientInfo.cuit}\nEmail: ${clientInfo.email}\nWhatsapp: ${clientInfo.whatsapp}\nDirección: ${clientInfo.address}\nProvincia: ${clientInfo.province}\nCiudad: ${clientInfo.city}\nCódigo Postal: ${clientInfo.zipCode}`);
 
   const confirmPurchase = () => {
     api.message(chat_id, text);

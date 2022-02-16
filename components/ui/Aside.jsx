@@ -23,7 +23,7 @@ function Aside({ categories }) {
           >
             <Heading color="blue.600" alignSelf="center" fontSize={18}>CATEGORÍAS</Heading>
             <Divider />
-            {categories.map((category) => <NextLink key={category} href={`/#${category}`}><Button colorScheme="blue" size="sm" w="80%">{category}</Button></NextLink>)}
+            {categories.map((category) => <NextLink key={category} href={`/#${encodeURI(category)}`}><Button colorScheme="blue" size="sm" w="80%">{category}</Button></NextLink>)}
             <Link href="https://api.whatsapp.com/send?phone=5493426483165&message" isExternal>
               <Button borderRadius="full" mt={10} colorScheme="green" leftIcon={<FaWhatsapp />}>
                 Contactanos

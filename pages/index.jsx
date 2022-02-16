@@ -45,7 +45,7 @@ function IndexRoute({
   // Display all products cards
   const productsCards = productsGrouping.map((productCat) => (
     <Stack key={productCat.productCategory} pb={10}>
-      <Text id={productCat.productCategory} color="gray.400" fontSize={25}>{productCat.productCategory}</Text>
+      <Text id={encodeURI(productCat.productCategory)} color="gray.400" fontSize={25}>{productCat.productCategory}</Text>
       <Grid gridGap={6} templateColumns="repeat(auto-fill, minmax(260px, 1fr))">
         {productCat.productsGroup.map((product) => (
           <Stack

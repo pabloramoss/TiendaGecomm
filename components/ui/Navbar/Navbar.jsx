@@ -43,7 +43,7 @@ function Navbar({ categories }) {
                 </HStack>
               </DrawerHeader>
               <DrawerBody>
-                {categories.map((category) => <Stack gap={3} key={category}><NextLink href={`/#${category}`}><Button onClick={onClose} my={3} colorScheme="blue">{category}</Button></NextLink></Stack>)}
+                {categories.map((category) => <Stack gap={3} key={category}><NextLink href={`/#${encodeURI(category)}`}><Button onClick={onClose} my={3} colorScheme="blue">{category}</Button></NextLink></Stack>)}
                 <Link href="https://api.whatsapp.com/send?phone=543424270884&message" isExternal>
                   <Button mt={10} width="100%" colorScheme="green" leftIcon={<FaWhatsapp />}>Contactate</Button>
                 </Link>

@@ -124,7 +124,7 @@ function Checkout({
                 Volver
               </Button>
               <Button colorScheme="green" px={10} size="lg" onClick={confirmPurchase}>Confirmar compra</Button>
-              <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose}>
+              <Modal closeOnEsc={false} closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent rounded="20">
                   <Icon mt={20} alignSelf="center" h={12} w={12} color="green.300" as={FaRegCheckCircle} />

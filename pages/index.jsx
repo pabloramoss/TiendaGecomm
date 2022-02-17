@@ -9,6 +9,7 @@ import Aside from '../components/ui/Aside';
 import OrderList from '../components/OrderList/OrderList';
 import parseCurrency from '../components/product/parseCurrency';
 import ProductCardAside from '../components/product/ProductCardAside';
+import Head from 'next/head'
 
 function IndexRoute({
   products, handleAddToCart, handleRemoveFromCart, cart, productOnHover, setProductOnHover,
@@ -79,11 +80,14 @@ function IndexRoute({
       </Grid>
     </Stack>
   ));
-  console.log(categories);
-  console.log(products);
 
   return (
     <Stack direction="row" bg="gray.200">
+      <Head>
+        <title>Tienda Gecomm</title>
+        <meta name="tienda gecomm" content="mayorista en telecomunicaciones" />
+        <link rel="icon" href="/favicon.png" />
+      </Head>
       <Navbar categories={categories} />
       <Aside categories={categories} />
       <Container overflow="scroll" pb={20} maxW="container.xl" maxH="100vh" alignSelf="center" pt={['100px', '100px', '100px', '25px']}>

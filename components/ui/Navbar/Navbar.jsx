@@ -44,7 +44,7 @@ function Navbar({ categories }) {
               </DrawerHeader>
               <DrawerBody>
                 {categories.map((category) => <Stack gap={3} key={category}><NextLink href={`/#${encodeURI(category)}`}><Button onClick={onClose} my={3} colorScheme="blue">{category}</Button></NextLink></Stack>)}
-                <Link href="https://api.whatsapp.com/send?phone=543424270884&message" isExternal>
+                <Link href="https://api.whatsapp.com/send?phone=5493426483165&message" isExternal>
                   <Button mt={10} width="100%" colorScheme="green" leftIcon={<FaWhatsapp />}>Contactate</Button>
                 </Link>
               </DrawerBody>

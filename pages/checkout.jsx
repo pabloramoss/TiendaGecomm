@@ -199,7 +199,7 @@ function Checkout({
   );
 }
 export const getStaticProps = async () => {
-  const dolarPrice = parseInt(await api.dolarBlue());
+  const dolarPrice = parseFloat(await api.dolarBlue());
   const chat_id = 5172640612;
 
   return {

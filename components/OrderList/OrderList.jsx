@@ -7,8 +7,9 @@ import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import parseCurrency from '../product/parseCurrency';
 import Cart from './Cart';
+import {productPriceTotalAR} from "../product/ProductPriceAR"
 
-function OrderList({ cart, handleRemoveFromCart, handleAddToCart }) {
+function OrderList({ cart, handleRemoveFromCart, handleAddToCart, dolarPrice }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
 
@@ -63,15 +64,22 @@ function OrderList({ cart, handleRemoveFromCart, handleAddToCart }) {
                 <Heading fontSize={18} opacity={0.6}>IVA:</Heading>
                 <Heading fontSize={18} opacity={0.6}>
                   US
-                  {parseCurrency(Math.trunc(subtotalIVA(cart)))}
+                  {parseCurrency(subtotalIVA(cart))}
                 </Heading>
               </HStack>
               <Divider />
               <HStack width="100%" justifyContent="space-between">
-                <Heading fontSize={18}>Total:</Heading>
-                <Heading fontSize={18}>
+                <Heading fontSize={18} opacity={0.5}>Total:</Heading>
+                <Heading fontSize={18} opacity={0.5}>
                   US
                   {parseCurrency(Math.trunc(totalPrice(cart)))}
+                </Heading>
+              </HStack>
+              <HStack width="100%" justifyContent="space-between">
+                <Heading fontSize={18}>Total:</Heading>
+                <Heading fontSize={18}>
+                  AR
+                  {parseCurrency(productPriceTotalAR(totalPrice(cart), dolarPrice))}
                 </Heading>
               </HStack>
             </Stack>

@@ -57,7 +57,7 @@ function Checkout({
                     ? (
                       <CheckoutCard
                         icon={FaTruck}
-                        title="Envio a domicilio"
+                        title="Envío a domicilio"
                         text="Pago en destino"
                       />
                     )

@@ -75,7 +75,7 @@ function IndexRoute({
                     %)
                   </Badge>
                 </Heading>
-                <Text color="gray.500" fontSize={14}>AR{parseCurrency((Math.trunc(ProductPriceAR(product.price, dolarPrice, product.iva))))}</Text>
+                <Text color="gray.500" fontSize={14}>AR{parseCurrency((Math.trunc(ProductPriceAR(product.price, dolarPrice))))}</Text>
               </Stack>
               <Text justifySelf="center" color="gray.600" fontSize={15}>{product.title}</Text>
               <Button justifySelf="end" colorScheme="blue" onClick={() => handleAddToCart(product)}>Agregar al carrito</Button>

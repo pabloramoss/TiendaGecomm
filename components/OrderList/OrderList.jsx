@@ -7,7 +7,7 @@ import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import parseCurrency from '../product/parseCurrency';
 import Cart from './Cart';
-import {productPriceTotalAR} from "../product/ProductPriceAR"
+import productPriceAR from '../product/ProductPriceAR';
 
 function OrderList({ cart, handleRemoveFromCart, handleAddToCart, dolarPrice }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -21,7 +21,7 @@ function OrderList({ cart, handleRemoveFromCart, handleAddToCart, dolarPrice }) 
   return (
     <Flex>
       <VStack width="100vw">
-        <Button top={['77vh', '77vh', '77vh', '90vh']} position="absolute" ref={btnRef} colorScheme="teal" px={8} onClick={onOpen}>
+        <Button top={['85vh', '85vh', '85vh', '90vh']} position="absolute" ref={btnRef} colorScheme="teal" px={8} onClick={onOpen}>
           <Icon as={FaShoppingCart} me={5} />
           Tu pedido (
           {getTotalItems(cart)}
@@ -72,14 +72,14 @@ function OrderList({ cart, handleRemoveFromCart, handleAddToCart, dolarPrice }) 
                 <Heading fontSize={18} opacity={0.5}>Total:</Heading>
                 <Heading fontSize={18} opacity={0.5}>
                   US
-                  {parseCurrency(Math.trunc(totalPrice(cart)))}
+                  {parseCurrency(totalPrice(cart))}
                 </Heading>
               </HStack>
               <HStack width="100%" justifyContent="space-between">
                 <Heading fontSize={18}>Total:</Heading>
                 <Heading fontSize={18}>
                   AR
-                  {parseCurrency(productPriceTotalAR(totalPrice(cart), dolarPrice))}
+                  {parseCurrency(Math.trunc(productPriceAR(totalPrice(cart), dolarPrice)))}
                 </Heading>
               </HStack>
             </Stack>

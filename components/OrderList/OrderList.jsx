@@ -16,7 +16,7 @@ function OrderList({ cart, handleRemoveFromCart, handleAddToCart, dolarPrice }) 
   const getTotalItems = ((items) => items.reduce((counter, item) => counter + item.amount, 0));
   const subtotalPrice = ((items) => items.reduce((counter, item) => counter + item.amount * item.price, 0));
   const subtotalIVA = ((items) => items.reduce((counter, item) => ((counter + (item.amount * item.price) * (item.iva / 100))), 0));
-  const totalPrice = ((items) => items.reduce((counter, item) => ((counter + item.amount * item.price + subtotalIVA(items))), 0));
+  const totalPrice = ((items) => items.reduce((counter, item) => ((counter + item.amount * item.price + (item.amount * item.price) * (item.iva / 100))), 0));
 
   return (
     <Flex>

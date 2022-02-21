@@ -21,9 +21,7 @@ const transactionDate = new Date().toISOString().slice(0, 10);
 function Checkout({
   cart, clientInfo, dolarPrice, handleAddToCart, handleRemoveFromCart, chat_id,
 }) {
-  const subTotalProducts = cart.map((item) => item.amount * item.price);
   const subtotalPrice = ((items) => items.reduce((counter, item) => counter + item.amount * item.price, 0));
-  const iva = 21;
   const subtotalIVA = ((items) => items.reduce((counter, item) => ((counter + (item.amount * item.price) * (item.iva / 100))), 0));
   const totalPrice = ((items) => items.reduce((counter, item) => ((counter + item.amount * item.price + (item.amount * item.price) * (item.iva / 100))), 0));
   const totalAR = Math.trunc(productPriceAR(totalPrice(cart), dolarPrice))
@@ -60,7 +58,7 @@ function Checkout({
                       <CheckoutCard
                         icon={FaTruck}
                         title="Envío a domicilio"
-                        text="Pago en destino"
+                        text="Flete pago en destino"
                       />
                     )
                     : (

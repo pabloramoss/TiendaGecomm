@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
+import Head from 'next/head'
 
 function App({ Component, pageProps }) {
   const [clientInfo, setClientInfo] = useState({
@@ -45,6 +46,11 @@ function App({ Component, pageProps }) {
 
   return (
     <ChakraProvider>
+      <Head>
+        <title>Tienda Gecomm</title>
+        <meta name="tienda gecomm" content="mayorista en telecomunicaciones" />
+        <link rel="icon" href="/favicon.png" />
+      </Head>
       <Component
         {...pageProps}
         handleRemoveFromCart={handleRemoveFromCart}

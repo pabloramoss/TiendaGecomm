@@ -9,7 +9,6 @@ import Aside from '../components/ui/Aside';
 import OrderList from '../components/OrderList/OrderList';
 import parseCurrency from '../components/product/parseCurrency';
 import ProductCardAside from '../components/product/ProductCardAside';
-import Head from 'next/head'
 import apiDolar from "../components/Checkout/api"
 import ProductPriceAR from '../components/product/ProductPriceAR';
 
@@ -88,11 +87,6 @@ function IndexRoute({
 
   return (
     <Stack direction="row" bg="gray.200">
-      <Head>
-        <title>Tienda Gecomm</title>
-        <meta name="tienda gecomm" content="mayorista en telecomunicaciones" />
-        <link rel="icon" href="/favicon.png" />
-      </Head>
       <Navbar categories={categories} dolarPrice={dolarPrice} />
       <Aside categories={categories} />
       <Container overflow="scroll" pb={20} maxW="container.xl" maxH="100vh" alignSelf="center" pt={['100px', '100px', '100px', '25px']}>

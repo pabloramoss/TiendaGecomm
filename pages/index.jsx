@@ -11,6 +11,7 @@ import parseCurrency from '../components/product/parseCurrency';
 import ProductCardAside from '../components/product/ProductCardAside';
 import apiDolar from "../components/Checkout/api"
 import ProductPriceAR from '../components/product/ProductPriceAR';
+import { type } from 'os';
 
 function IndexRoute({
   products, handleAddToCart, handleRemoveFromCart, cart, productOnHover, setProductOnHover, dolarPrice
@@ -103,8 +104,9 @@ function IndexRoute({
 }
 
 export const getStaticProps = async () => {
-  const dolarPrice = parseFloat(await apiDolar.dolarBlue());
+  const dolarPrice = await apiDolar.dolarBlue();;
   const products = await api.list();
+
   return {
     revalidate: 10,
     props: {

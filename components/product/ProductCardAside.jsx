@@ -4,6 +4,7 @@ import {
 } from '@chakra-ui/react';
 
 function ProductCardAside({ product, dolarPrice }) {
+  
   return (
     <Stack w="300px" h="100vh" bg="white" _hover={{ boxShadow: 'dark-lg' }} alignItems="center">
       {(product === '')

@@ -3,10 +3,10 @@ import axios from "axios"
 const urlPurchaseDB = "https://sheet.best/api/sheets/f8479c6e-a793-48c6-a92d-03b1f2eda374"
 
 export default {
-   dolarBlue: async () => {
+  dolarBlue: async () => {
     return axios.get("https://www.dolarsi.com/api/api.php?type=valoresprincipales").then(
       response => {
-        const dolarBluePrice = response.data[0].casa.venta
+        const dolarBluePrice = parseFloat((response.data[0].casa.venta).replace(",","."))
         return dolarBluePrice
       }
     ).catch(error => console.log(error))

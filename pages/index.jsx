@@ -1,6 +1,17 @@
 import React from 'react';
 import {
-  useDisclosure, Grid, Heading, Stack, Text, Image, Divider, Button, Flex, Icon, Container, Badge,
+  useDisclosure, 
+  Grid, 
+  Heading, 
+  Stack, 
+  Text, 
+  Image, 
+  Divider, 
+  Button, 
+  Flex, 
+  Icon, 
+  Container, 
+  Badge,
 } from '@chakra-ui/react';
 import { FaTruck } from 'react-icons/fa';
 import api from '../components/product/api';
@@ -11,7 +22,6 @@ import parseCurrency from '../components/product/parseCurrency';
 import ProductCardAside from '../components/product/ProductCardAside';
 import apiDolar from "../components/Checkout/api"
 import ProductPriceAR from '../components/product/ProductPriceAR';
-import { type } from 'os';
 
 function IndexRoute({
   products, handleAddToCart, handleRemoveFromCart, cart, productOnHover, setProductOnHover, dolarPrice
@@ -26,18 +36,18 @@ function IndexRoute({
 
   // Agroup all products by category
   const productsGrouping = products.reduce((a, {
-    category, title, price, iva, image, description,
+    category, title, price, iva, image, description, quantity,
   }) => {
     const foundCategory = a.find(({ productCategory }) => productCategory === category);
     if (foundCategory) {
       foundCategory.productsGroup.push({
-        title, price, iva, image, description,
+        title, price, iva, image, description, quantity,
       });
     } else {
       a.push({
         productCategory: category,
         productsGroup: [{
-          title, price, iva, image, description,
+          title, price, iva, image, description, quantity,
         }],
       });
     }
@@ -65,6 +75,7 @@ function IndexRoute({
             <Divider />
             <Stack height="100%" justifyContent="space-between" p={5}>
               <Stack spacing={0}>
+                <Badge alignSelf="start" bg="gray.300">{product.quantity}</Badge>
                 <Heading fontSize={22} fontWeight={600}>
                   {' '}
                   US

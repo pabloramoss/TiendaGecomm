@@ -207,6 +207,7 @@ export const getStaticProps = async () => {
       dolarPrice,
       chat_id,
     },
+    revalidate: 60,
   };
 };
 

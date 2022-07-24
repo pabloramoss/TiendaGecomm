@@ -22,6 +22,7 @@ import parseCurrency from '../components/product/parseCurrency';
 import ProductCardAside from '../components/product/ProductCardAside';
 import apiDolar from "../components/Checkout/api"
 import ProductPriceAR from '../components/product/ProductPriceAR';
+import Warning from '../components/Warning';
 
 function IndexRoute({
   products, handleAddToCart, handleRemoveFromCart, cart, productOnHover, setProductOnHover, dolarPrice
@@ -98,12 +99,13 @@ function IndexRoute({
   ));
 
   return (
-    <Stack direction="row" bg="gray.200">
+    <Stack direction="row" bg="gray.200" justifyContent="space-between">
       <Navbar categories={categories} dolarPrice={dolarPrice} />
       <Aside categories={categories} />
-      <Container overflow="scroll" pb={20} maxW="container.xl" maxH="100vh" alignSelf="center" pt={['100px', '100px', '100px', '25px']}>
+      <Warning />
+      {/* <Container overflow="scroll" pb={20} maxW="container.xl" maxH="100vh" alignSelf="center" pt={['100px', '100px', '100px', '25px']}>
         {productsCards}
-      </Container>
+      </Container> */}
       <Stack display={['none', 'none', 'none', 'flex']} width="300px">
         {isOpen ? <ProductCardAside dolarPrice={dolarPrice} product={productOnHover} /> : <ProductCardAside dolarPrice={dolarPrice} product="" />}
       </Stack>

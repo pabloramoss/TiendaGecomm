@@ -6,7 +6,7 @@ import {
 function ProductCardAside({ product, dolarPrice }) {
   
   return (
-    <Stack w="300px" h="100vh" bg="white" _hover={{ boxShadow: 'dark-lg' }} alignItems="center">
+    <Stack w="300px" h="100vh" bg="white"  alignItems="center">
       {(product === '')
         ? <Badge py={2} fontSize={11} bg="gray.100" borderBottomRadius={10} px={5} >Cotización del dólar: $ {dolarPrice}</Badge>
         : (

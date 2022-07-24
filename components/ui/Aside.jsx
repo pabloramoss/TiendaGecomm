@@ -9,7 +9,7 @@ function Aside({ categories }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Stack py={3} bg="white" w="300px" h="100vh" display={['none', 'none', 'none', 'flex']} justifyContent="space-between">
+    <Stack py={3} bg="white" w="300px" h="100vh" display={['none', 'none', 'none', 'flex']}>
       <Stack justifyContent="space-between" height="100%" alignItems="center">
         <Stack>
           <Link href="/">

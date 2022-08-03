@@ -121,7 +121,7 @@ export const getStaticProps = async () => {
   const products = await api.list();
 
   return {
-    revalidate: 10,
+    revalidate: 60,
     props: {
       products,
       dolarPrice,

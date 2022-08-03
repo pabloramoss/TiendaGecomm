@@ -102,10 +102,10 @@ function IndexRoute({
     <Stack direction="row" bg="gray.200" justifyContent="space-between">
       <Navbar categories={categories} dolarPrice={dolarPrice} />
       <Aside categories={categories} />
-      <Warning />
-      {/* <Container overflow="scroll" pb={20} maxW="container.xl" maxH="100vh" alignSelf="center" pt={['100px', '100px', '100px', '25px']}>
+      {/* <Warning /> */}
+      <Container overflow="scroll" pb={20} maxW="container.xl" maxH="100vh" alignSelf="center" pt={['100px', '100px', '100px', '25px']}>
         {productsCards}
-      </Container> */}
+      </Container>
       <Stack display={['none', 'none', 'none', 'flex']} width="300px">
         {isOpen ? <ProductCardAside dolarPrice={dolarPrice} product={productOnHover} /> : <ProductCardAside dolarPrice={dolarPrice} product="" />}
       </Stack>

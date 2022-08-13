@@ -17,6 +17,8 @@ function App({ Component, pageProps }) {
   });
   const [productOnHover, setProductOnHover] = useState();
 
+  const [dolarPrice, setDolarPrice] = useState()
+
   const [cart, setCart] = useState([]);
   const handleAddToCart = (clickedItem) => {
     setCart((prev) => {
@@ -60,6 +62,8 @@ function App({ Component, pageProps }) {
         setClientInfo={setClientInfo}
         productOnHover={productOnHover}
         setProductOnHover={setProductOnHover}
+        setDolarPrice={setDolarPrice}
+        dolarPrice={dolarPrice}
       />
     </ChakraProvider>
   );

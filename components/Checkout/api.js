@@ -9,10 +9,10 @@ export default {
         const dolarBluePrice = parseFloat((response.data[0].casa.venta).replace(",","."))
         return dolarBluePrice
       }
-    ).catch(error => console.log(error))
+    ).catch(error => console.error(error))
   },
   message: async (chat_id, text) =>{
-    return axios.post(`https://api.telegram.org/bot5165116240:AAFAI03uGZhb2C7Wg6TGkdhQ6Jg4DMJauSo/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(text)}`).catch(error => console.log(error))
+    return axios.post(`https://api.telegram.org/bot5165116240:AAFAI03uGZhb2C7Wg6TGkdhQ6Jg4DMJauSo/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(text)}`).catch(error => console.error(error))
   },
   postDB: async (clientInfo, uniqueID, transactionDate)=>{
     const objectDB = {

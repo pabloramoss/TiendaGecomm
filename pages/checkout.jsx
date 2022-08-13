@@ -198,17 +198,17 @@ function Checkout({
     </Stack>
   );
 }
-export const getStaticProps = async () => {
-  const dolarPrice = await api.dolarBlue();
-  const chat_id = 5172640612;
+// export const getStaticProps = async () => {
+//   const dolarPrice = await api.dolarBlue();
+//   const chat_id = 5172640612;
 
-  return {
-    props: {
-      dolarPrice,
-      chat_id,
-    },
-    revalidate: 60,
-  };
-};
+//   return {
+//     props: {
+//       dolarPrice,
+//       chat_id,
+//     },
+//     revalidate: 60,
+//   };
+// };
 
 export default Checkout;

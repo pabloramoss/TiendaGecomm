@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   useDisclosure, 
   Grid, 
@@ -25,7 +25,7 @@ import ProductPriceAR from '../components/product/ProductPriceAR';
 import Warning from '../components/Warning';
 
 function IndexRoute({
-  products, handleAddToCart, handleRemoveFromCart, cart, productOnHover, setProductOnHover, dolarPrice
+  products, handleAddToCart, handleRemoveFromCart, cart, productOnHover, setProductOnHover, dolarPriceApi, setDolarPrice
 }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -55,6 +55,11 @@ function IndexRoute({
     return a;
   }, []);
   const categories = productsGrouping.map((item) => item.productCategory); // Return only categories
+
+  useEffect(() => {
+    setDolarPrice(dolarPriceApi)
+  }, [])
+  
 
   // Display all products cards
   const productsCards = productsGrouping.map((productCat) => (
@@ -87,7 +92,7 @@ function IndexRoute({
                     %)
                   </Badge>
                 </Heading>
-                <Text color="gray.500" fontSize={14}>AR{parseCurrency((Math.trunc(ProductPriceAR(product.price, dolarPrice))))}</Text>
+                <Text color="gray.500" fontSize={14}>AR{parseCurrency((Math.trunc(ProductPriceAR(product.price, dolarPriceApi))))}</Text>
               </Stack>
               <Text justifySelf="center" color="gray.600" fontSize={15}>{product.title}</Text>
               <Button justifySelf="end" colorScheme="blue" onClick={() => handleAddToCart(product)}>Agregar al carrito</Button>
@@ -100,31 +105,31 @@ function IndexRoute({
 
   return (
     <Stack direction="row" bg="gray.200" justifyContent="space-between">
-      <Navbar categories={categories} dolarPrice={dolarPrice} />
+      <Navbar categories={categories} dolarPrice={dolarPriceApi} />
       <Aside categories={categories} />
       {/* <Warning /> */}
       <Container overflow="scroll" pb={20} maxW="container.xl" maxH="100vh" alignSelf="center" pt={['100px', '100px', '100px', '25px']}>
         {productsCards}
       </Container>
       <Stack display={['none', 'none', 'none', 'flex']} width="300px">
-        {isOpen ? <ProductCardAside dolarPrice={dolarPrice} product={productOnHover} /> : <ProductCardAside dolarPrice={dolarPrice} product="" />}
+        {isOpen ? <ProductCardAside dolarPrice={dolarPriceApi} product={productOnHover} /> : <ProductCardAside dolarPrice={dolarPriceApi} product="" />}
       </Stack>
       <Flex position="fixed" zIndex={50}>
-        {Boolean(cart.length) && <OrderList dolarPrice={dolarPrice} cart={cart} handleAddToCart={handleAddToCart} handleRemoveFromCart={handleRemoveFromCart} />}
+        {Boolean(cart.length) && <OrderList dolarPrice={dolarPriceApi} cart={cart} handleAddToCart={handleAddToCart} handleRemoveFromCart={handleRemoveFromCart} />}
       </Flex>
     </Stack>
   );
 }
 
 export const getStaticProps = async () => {
-  const dolarPrice = await apiDolar.dolarBlue();;
+  const dolarPriceApi = await apiDolar.dolarBlue();;
   const products = await api.list();
 
   return {
     revalidate: 60,
     props: {
       products,
-      dolarPrice,
+      dolarPriceApi,
     },
   };
 };

@@ -23,6 +23,7 @@ import ProductCardAside from '../components/product/ProductCardAside';
 import apiDolar from "../components/Checkout/api"
 import ProductPriceAR from '../components/product/ProductPriceAR';
 import Warning from '../components/Warning';
+import Carousel from '../components/Carousel/Carousel';
 
 function IndexRoute({
   products, handleAddToCart, handleRemoveFromCart, cart, productOnHover, setProductOnHover, dolarPriceApi, setDolarPrice
@@ -109,6 +110,7 @@ function IndexRoute({
       <Aside categories={categories} />
       {/* <Warning /> */}
       <Container overflow="scroll" pb={20} maxW="container.xl" maxH="100vh" alignSelf="center" pt={['100px', '100px', '100px', '25px']}>
+      {/* <Carousel /> */}
         {productsCards}
       </Container>
       <Stack display={['none', 'none', 'none', 'flex']} width="300px">

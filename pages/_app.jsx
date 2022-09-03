@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 import Head from 'next/head'
+import "../styles/styles.css"
 
 function App({ Component, pageProps }) {
   const [clientInfo, setClientInfo] = useState({

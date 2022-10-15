@@ -3,7 +3,7 @@ import Papa from "papaparse";
 
 export default {
   list: async () =>{
-    return axios.get("https://docs.google.com/spreadsheets/d/e/2PACX-1vThWuKpE37U6JmP7lSchIlBSBWhOP08bMJQPJzdJwNib4TDq7e-O_4prdjenPr9r2kz9U5fQYG_cXmz/pub?output=csv", {
+    return axios.get(process.env.PRODUCT_DB, {
       responseType: "blob"
     }).then(
       response =>{

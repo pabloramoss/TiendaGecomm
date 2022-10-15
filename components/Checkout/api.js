@@ -1,7 +1,5 @@
 import axios from "axios"
 
-const urlPurchaseDB = "https://sheet.best/api/sheets/f8479c6e-a793-48c6-a92d-03b1f2eda374"
-
 export default {
   dolarBlue: async () => {
     return axios.get("https://www.dolarsi.com/api/api.php?type=valoresprincipales").then(
@@ -11,8 +9,8 @@ export default {
       }
     ).catch(error => console.error(error))
   },
-  message: async (chat_id, text) =>{
-    return axios.post(`https://api.telegram.org/bot5165116240:AAFAI03uGZhb2C7Wg6TGkdhQ6Jg4DMJauSo/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(text)}`).catch(error => console.error(error))
+  message: async (text) =>{
+    return axios.post(`https://api.telegram.org/bot${process.env.NEXT_PUBLIC_TELEGRAM_TOKEN}/sendMessage?chat_id=${process.env.NEXT_PUBLIC_CHAT_ID}&text=${encodeURIComponent(text)}`).catch(error => console.error(error))
   },
   postDB: async (clientInfo, uniqueID, transactionDate)=>{
     const objectDB = {
@@ -28,6 +26,6 @@ export default {
       "codigo postal": clientInfo.zipCode, 
       "direccion": clientInfo.address
       }
-    return axios.post(urlPurchaseDB, objectDB)
+    return axios.post(process.env.NEXT_PUBLIC_PURCHASES_DB, objectDB)
   }
 }  

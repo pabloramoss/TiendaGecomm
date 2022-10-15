@@ -19,8 +19,7 @@ const uniqueID = String(Date.now());
 const transactionDate = new Date().toISOString().slice(0, 10);
 
 function Checkout({
-  cart, clientInfo, dolarPrice, handleAddToCart, handleRemoveFromCart, chat_id,
-}) {
+  cart, clientInfo, dolarPrice, handleAddToCart, handleRemoveFromCart}) {
   const subtotalPrice = ((items) => items.reduce((counter, item) => counter + item.amount * item.price, 0));
   const subtotalIVA = ((items) => items.reduce((counter, item) => ((counter + (item.amount * item.price) * (item.iva / 100))), 0));
   const totalPrice = ((items) => items.reduce((counter, item) => ((counter + item.amount * item.price + (item.amount * item.price) * (item.iva / 100))), 0));
@@ -36,7 +35,7 @@ function Checkout({
   const text = cart.reduce((message, product) => message.concat(`* ${product.title} - x${product.amount}\n`), '').concat(`\nTotal: ${parseCurrency(totalAR)}`).concat(`\nCliente: ${clientInfo.name}\nCódigo: ${uniqueID}\nFecha: ${transactionDate}\nEmpresa: ${clientInfo.company}\nCuit: ${clientInfo.cuit}\nEmail: ${clientInfo.email}\nWhatsapp: ${clientInfo.whatsapp}\nDirección: ${clientInfo.address}\nProvincia: ${clientInfo.province}\nCiudad: ${clientInfo.city}\nCódigo Postal: ${clientInfo.zipCode}`);
 
   const confirmPurchase = () => {
-    api.message(chat_id, text);
+    api.message(text);
     api.postDB(clientInfo, transactionDate, uniqueID);
     onOpen();
   };

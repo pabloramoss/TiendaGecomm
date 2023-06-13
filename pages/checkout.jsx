@@ -26,8 +26,8 @@ function Checkout({
   const totalAR = Math.trunc(productPriceAR(totalPrice(cart), dolarPrice))
 
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const CBU = '0170418540000032180697';
-  const alias = 'FOTO.OLEO.SOL';
+  const CBU = '0000003100021863537793';
+  const alias = 'GECOMM.MP';
   const { hasCopied, onCopy } = useClipboard(CBU);
   const router = useRouter();
   const handleGoBack = () => router.push('/UserForm');

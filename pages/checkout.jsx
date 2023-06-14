@@ -162,7 +162,7 @@ function Checkout({
                               <Badge fontSize={15} rounded={10} alignSelf="center" fontWeight={500} me={2}>{alias}</Badge>
                             </HStack>
                             <Divider />
-                            <Badge alignSelf="center" justifySelf="center" fontSize={15} rounded={10} fontWeight={500} me={2}>(caja de ahorro BBVA)</Badge>
+                            <Badge alignSelf="center" justifySelf="center" fontSize={15} rounded={10} fontWeight={500} me={2}>(caja de ahorro MercadoPago)</Badge>
                           </Stack>
                         </Stack>
                       </HStack>

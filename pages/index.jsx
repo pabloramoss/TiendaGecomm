@@ -124,14 +124,14 @@ function IndexRoute({
 }
 
 export const getStaticProps = async () => {
-  const dolarPriceApi = await apiDolar.dolarBlue();;
+  const dolarPriceApi = await apiDolar.dolarBlue();
   const products = await api.list();
 
   return {
     revalidate: 60,
     props: {
       products,
-      dolarPriceApi,
+      dolarPriceApi: dolarPriceApi ? dolarPriceApi : null,
     },
   };
 };

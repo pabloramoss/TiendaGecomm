@@ -2,12 +2,14 @@ import axios from "axios"
 
 export default {
   dolarBlue: async () => {
-    return axios.get("https://www.dolarsi.com/api/api.php?type=valoresprincipales").then(
-      response => {
-        const dolarBluePrice = parseFloat((response.data[0].casa.venta).replace(",","."))
-        return dolarBluePrice
-      }
-    ).catch(error => console.error(error))
+    try {
+      const response = await axios.get("https://dolarapi.com/v1/dolares/blue");
+      const dolarBluePrice = response.data.venta;
+      return dolarBluePrice;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
   },
   message: async (text) =>{
     return axios.post(`https://api.telegram.org/bot${process.env.NEXT_PUBLIC_TELEGRAM_TOKEN}/sendMessage?chat_id=${process.env.NEXT_PUBLIC_CHAT_ID}&text=${encodeURIComponent(text)}`).catch(error => console.error(error))

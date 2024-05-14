@@ -3,7 +3,7 @@ import axios from "axios"
 export default {
   dolarBlue: async () => {
     try {
-      const response = await axios.get("https://dolarapi.com/v1/dolares/blue");
+      const response = await axios.get("https://dolarapi.com/v1/dolares/oficial");
       const dolarBluePrice = response.data.venta;
       return dolarBluePrice;
     } catch (error) {
